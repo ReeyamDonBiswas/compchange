@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import {DataService} from './data.service'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -26,6 +26,14 @@ parentFunction(data){
   console.log(data);
   this.name=data.name;
   this.age=data.age;
+  
+}
+data1={};
+constructor(private user:DataService){
+  this.user.getData().subscribe(data=>{
+    console.log(data)
+    this.data1=data;
+  });
   
 }
 }

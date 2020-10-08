@@ -16,3 +16,19 @@
 <br>
 <h2>This is the component to component interaction</h2>
 </div>
+<br><br>
+
+<div class="container">
+    <table border="1">
+        <tr>
+            <td>Id</td>
+            <td>Title</td>
+            <td>User Id</td>
+        </tr>
+        <tr *ngFor="let item of data1">
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.userId}}</td>
+        </tr>
+    </table>
+</div>
