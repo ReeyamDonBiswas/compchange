@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { fromEvent, interval } from 'rxjs';
+import { debounce, debounceTime, switchMap } from 'rxjs/operators';
 import {DataService} from './data.service'
 @Component({
   selector: 'app-root',
@@ -33,7 +36,30 @@ constructor(private user:DataService){
   this.user.getData().subscribe(data=>{
     console.log(data)
     this.data1=data;
+    
   });
-  
+ 
 }
+searchControl:FormControl= new FormControl();
+
+counter=0;
+ngOnInit(){
+fromEvent(document,'click').pipe(
+  switchMap(()=>interval(500))).subscribe(val=>(this.counter=val));
+  this.searchControl.valueChanges.pipe(
+    debounceTime(1000),switchMap(()=>interval(500))).subscribe((val)=>(this.counter=val)
+  );
+}
+error:String;
+dataGet(){
+  this.user.getData().subscribe((dataApi)=>
+  {
+    console.log(dataApi)
+    
+  },(error)=>{
+    console.log(error);
+    this.error=error
+  })
+}
+
 }

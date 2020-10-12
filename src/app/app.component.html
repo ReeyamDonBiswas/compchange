@@ -32,3 +32,16 @@
         </tr>
     </table>
 </div>
+<app-parent1></app-parent1>
+<h1>{{counter}}</h1>
+<br>
+<div class="container">
+    <input placeholder="Search" [formControl]='searchControl' name="search">
+
+<hr>
+
+<button (click)="dataGet()">Get Data</button>
+{{error}}
+<p></p>
+<p> </p>
+</div>

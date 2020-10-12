@@ -10,6 +10,7 @@ import { Parent1Component } from './parent1/parent1.component';
 import { Parent2Component } from './parent2/parent2.component';
 import { Parent3Component } from './parent3/parent3.component';
 
+import {ReactiveFormsModule} from '@angular/forms'
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,7 @@ import { Parent3Component } from './parent3/parent3.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
